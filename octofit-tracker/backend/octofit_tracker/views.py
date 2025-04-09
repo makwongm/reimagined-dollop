@@ -6,13 +6,13 @@ from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    base_url = request.build_absolute_uri('/')
+    base_url = 'https://ideal-space-telegram-wwrpx695xpvf5jqx-8000.app.github.dev' if 'ideal-space-telegram' in request.get_host() else 'http://localhost:8000'
     return Response({
-        'users': f'{base_url}api/users/',
-        'teams': f'{base_url}api/teams/',
-        'activities': f'{base_url}api/activities/',
-        'leaderboard': f'{base_url}api/leaderboard/',
-        'workouts': f'{base_url}api/workouts/'
+        'users': f'{base_url}/api/users/',
+        'teams': f'{base_url}/api/teams/',
+        'activities': f'{base_url}/api/activities/',
+        'leaderboard': f'{base_url}/api/leaderboard/',
+        'workouts': f'{base_url}/api/workouts/'
     })
 
 class UserViewSet(viewsets.ModelViewSet):
