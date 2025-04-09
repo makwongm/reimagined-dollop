@@ -1,0 +1,2 @@
+# Backend dependencies
+Django==4.1
